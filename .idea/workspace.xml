@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3200a7e6-af37-4d18-a453-1f9267bcd73f" name="Changes" comment="final">
+      <change beforePath="$PROJECT_DIR$/SpawnScripts/mapClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpawnScripts/mapClass.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TankScripts/dataFire/dataX.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TankScripts/dataFire/dataX.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TankScripts/dataFire/dataY.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TankScripts/dataFire/dataY.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TankScripts/tankClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/TankScripts/tankClass.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TankScripts/tankMainFire.py" beforeDir="false" afterPath="$PROJECT_DIR$/TankScripts/tankMainFire.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameScripts/gameClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameScripts/gameClass.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/information.txt" beforeDir="false" afterPath="$PROJECT_DIR$/information.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/0.0.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/0.1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/0.2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/0.3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/0.4.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/0.5.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/0.6.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/1.0.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/1.1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/1.2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/1.3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/1.4.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/1.5.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/1.6.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/2.0.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/2.1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/2.2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/2.3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/2.4.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/2.5.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/2.6.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/3.0.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/3.1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/3.2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/3.3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/3.4.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/3.5.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/3.6.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/4.0.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/4.1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/4.2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/4.3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/4.4.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/4.5.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/4.6.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/5.0.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/5.1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/5.2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/5.3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/5.4.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/5.5.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/5.6.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/6.0.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/6.1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/6.2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/6.3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/6.4.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/6.5.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/6.6.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/info.txt" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2SjWcjWSWC0hwdEVrlVBKhGh4Q6" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Users/Misha/MyFiles/программирование/python pro/урок 18 Магические методы. Конструктор класса&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Users\Misha\PycharmProjects\NeiroTank\gameScripts" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.main (1)">
+    <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="NeiroTank" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="NeiroTank" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="D:\Users\Misha\PycharmProjects\NeiroTank\main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tankMainFire" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="NeiroTank" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TankScripts" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TankScripts/tankMainFire.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="NeiroTank" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="windowClass" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="NeiroTank" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/window" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/window/windowClass.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main (1)" />
+        <item itemvalue="Python.tankMainFire" />
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.windowClass" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3200a7e6-af37-4d18-a453-1f9267bcd73f" name="Changes" comment="" />
+      <created>1689660552041</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1689660552041</updated>
+    </task>
+    <task id="LOCAL-00001" summary="t">
+      <option name="closed" value="true" />
+      <created>1690257432408</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1690257432408</updated>
+    </task>
+    <task id="LOCAL-00002" summary="final">
+      <option name="closed" value="true" />
+      <created>1690279773966</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1690279773966</updated>
+    </task>
+    <task id="LOCAL-00003" summary="final">
+      <option name="closed" value="true" />
+      <created>1690281065743</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1690281065743</updated>
+    </task>
+    <task id="LOCAL-00004" summary="final">
+      <option name="closed" value="true" />
+      <created>1690281083615</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1690281083615</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="t" />
+    <MESSAGE value="final" />
+    <option name="LAST_COMMIT_MESSAGE" value="final" />
+  </component>
+</project>
