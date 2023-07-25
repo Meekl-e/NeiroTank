@@ -1,3 +1,4 @@
+import time
 from copy import deepcopy
 
 
@@ -44,7 +45,7 @@ class Game:
         self.visible = tankSettings.visibleZone
         self.maxMembers = SettingsMap.maxMembers
         self.walls = []
-        self.bonuses = []
+        self.bonuses = set()
 
 
         for y in range(len(map)):
@@ -52,38 +53,41 @@ class Game:
                 if map[y][x] == "W":
                     self.walls.append((x,y))
                 elif map[y][x] == "B":
-                    self.bonuses.append((x,y))
+                    self.bonuses.add((x,y))
 
         self.game()
 
     def game(self):
-        self.choices = 0
+        self.choices = -1000
 
         self.counter = SettingsMap.counter
         while len(self.members) >0:
-            print(len(self.members), self.choices)
-            if self.choices >= 10000 and SettingsMap.bonuses > 20:
+
+
+            if self.choices >= 1000 and SettingsMap.bonuses > 20:
                 self.choices = 0
                 self.bonusHelth+=self.addingBonus
-                SettingsMap.bonuses = SettingsMap.bonuses-10
+                SettingsMap.bonuses = SettingsMap.bonuses-1
                 self.counter+=1
                 with open("information.txt","a") as file:
-                    file.write(str(10000*self.counter)+" choices\n")
+                    file.write(str(1000*self.counter)+" choices\n")
                     file.write("Population: "+str(len(self.members))+"\n")
                     file.write("BONUS_ADD: "+str(round(self.bonusHelth))+"\n")
                     file.write("BONUSES: "+str(SettingsMap.bonuses)+"\n\n")
                     file.close()
-                print(10000*self.counter,"choices")
+                print(1000*self.counter,"choices")
                 print("Population:", len(self.members))
                 print("BONUSES:", SettingsMap.bonuses)
                 print("BONUS_ADD: ", self.bonusHelth)
                 self.saveBest()
-            if self.choices % 100 ==0:
+            if self.choices % 500 ==0:
                 self.saveBest()
             self.choices+=1
 
-            while len(self.bonuses) < SettingsMap.bonuses:
+            while len(self.bonuses)< SettingsMap.bonuses:
+
                 self.spawnBonus()
+
             newMap = deepcopy(self.map)
             for m in self.members:
 
@@ -108,17 +112,19 @@ class Game:
                     m.health+= round(self.bonusHelth)
 
                 if m.health >= m.healthSpawnTank:
-                    m.health = m.health - 100
+                    m.health = m.health - 50
                     self.spawnTank(m)
 
             '''
+
             self.window.choices = self.choices
-            self.window.bestLife = self.spawns
-            self.window.bestMutation = self.mutation
+            self.window.bestLife = self.choices
+            self.window.bestMutation = self.bonusHelth
             self.window.tanks = len(self.members)
             self.window.costChoice = SettingsMap.removeHealth
             self.window.bonuses = len(self.bonuses)
             self.window.updateMatrix(self.map)
+            time.sleep(0.01)
 
 
             '''
@@ -140,7 +146,8 @@ class Game:
             o = self.map[y][x]
         if c >= size:
             return
-        self.bonuses.append((x,y))
+
+        self.bonuses.add((x,y))
         self.map[y][x] = "B"
     def checkChoice(self, newPos):
 
@@ -200,6 +207,7 @@ class Game:
             for mem2 in self.members:
                 if m == mem2 or mem2.health<=0:
                     continue
+                    '''
                 if self.checkPosition(m.position, mem2.position):
                     if m.health > mem2.health:
                         m.health += mem2.health
@@ -210,6 +218,7 @@ class Game:
                     else:
                         m.health = 0
                         mem2.health = 0
+                    '''
                 if m.position == mem2.position:
 
                     m.health = 0
@@ -240,13 +249,14 @@ class Game:
             info.close()
         except FileExistsError:
             pass
+        '''
         for lineWeight in range(self.visible*2+1):
             for box in range(self.visible*2+1):
                 for sensor in range(len(best.matrixWeights[lineWeight][box])):
                     minSide = min(best.matrixWeights[lineWeight][box][sensor])
                     for side in range(4):
                         best.matrixWeights[lineWeight][box][sensor][side] =best.matrixWeights[lineWeight][box][sensor][side] - minSide
-
+'''
         info = open("weightBestTank/info.txt", "w")
         info.write(str(self.choices)+"\n")
         info.write(str(self.counter)+"\n")

@@ -12,9 +12,12 @@ def loadData():
 
 
 def addToFile(x,y):
-    f = open("TankScripts/dataFire/dataX.txt", "a")
+    f = open("TankScripts/dataFire/dataX.txt", "r")
     if len(f.readlines()) > 100000:
+        f.close()
         return
+    f.close()
+    f = open("TankScripts/dataFire/dataX.txt", "a")
     for s in x:
         f.write(str(s) + " ")
     f.write("\n")
@@ -47,11 +50,10 @@ class CheckTank:
         self.minTank = minDist[2]
     def saveChoice(self, tankMap):
         dataY = (-1,-1)
-        for y in range(-1,2,2):
-            for x in range(-1,2,2):
-                if self.minCords[1]+y < len(self.tankMap) and self.minCords[0] + x < len(self.tankMap):
-                    if tankMap[self.minCords[1]+y][self.minCords[0]+x] == self.minTank:
-                        dataY = (x,y)
+        for y in range(len(tankMap)):
+            for x in range(len(tankMap)):
+                if tankMap[y][x] == self.minTank:
+                    dataY = (x,y)
 
 
         addToFile(self.tankMap, dataY)

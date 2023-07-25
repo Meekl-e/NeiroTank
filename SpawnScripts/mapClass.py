@@ -74,7 +74,9 @@ class Map():
           for e in range(self.settings.bonuses):
                 x = rnd.randint(0,self.size-1)
                 y =rnd.randint(0,self.size-1)
+
                 while self.matrix[y][x] <=0:
+
                       x = rnd.randint(0, self.size - 1)
                       y = rnd.randint(0, self.size - 1)
                 self.matrix[y][x] = -4

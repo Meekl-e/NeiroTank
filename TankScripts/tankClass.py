@@ -57,14 +57,15 @@ class Tank:
 
         self.map = map
 
-        if self.test == None:
-            self.test = CheckTank(map)
-        else:
-            self.test.saveChoice(map)
-            self.test = None
+     #   if self.test == None:
+      #      if random.randint(0,200) == 1:
+       #         self.test = CheckTank(map)
+        #else:
+         #   self.test.saveChoice(map)
+          #  self.test = None
 
         #print(self.map)
-        #for l in self.map:
+       # for l in self.map:
          #   print(l)
         #print(self.getSide())
 
@@ -78,6 +79,7 @@ class Tank:
                 if x == (self.lenMap-1)//2 and y == (self.lenMap-1)//2:
                     continue
                 control= self.matrixWeights[y][x].getSensor(self.map[y][x])
+
                 sides["right"] += control.right
                 sides["left"] += control.left
                 sides["up"] += control.up
@@ -85,19 +87,15 @@ class Tank:
         sides = zip(sides.keys(), sides.values())
         s = sorted(sides, key=lambda x:x[1], reverse=True)
 
-        if s[0][1] == s[1][1] == s[2][1] == s[3][1]:
-            return random.choice(s)[0]
-        if s[0][1] == s[1][1] == s[2][1]:
-            return random.choice(s[:3])[0]
         if s[0][1] == s[1][1]:
-            return random.choice(s[:2])[0]
+            return random.choice(s)[0]
 
         return s[0][0]
     def setCoords(self, side):
 
         x,y = self.position
 
-        #self.window.updateSide(self.id, side)
+#        self.window.updateSide(self.id, side)
         if side=="right":
             self.position = (x+1, y)
         elif side=="up":
