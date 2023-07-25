@@ -1,7 +1,7 @@
 import random
 from TankScripts.sensorClass import Box
 from TankScripts.tankSettings import tankSettings
-
+from TankScripts.tankMainFire import CheckTank
 
 
 class Tank:
@@ -17,6 +17,7 @@ class Tank:
         self.window = window
         self.lenMap = tankSettings.visibleZone*2+1
         self.id = id
+        self.test = None
 
         self.chanceMutation = chanceMutation
         self.valueMutaion = valueMutaion
@@ -56,6 +57,11 @@ class Tank:
 
         self.map = map
 
+        if self.test == None:
+            self.test = CheckTank(map)
+        else:
+            self.test.saveChoice(map)
+            self.test = None
 
         #print(self.map)
         #for l in self.map:

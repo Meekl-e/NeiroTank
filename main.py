@@ -4,16 +4,16 @@ from gameScripts import gameClass
 from SpawnScripts.SettingsClass import SettingsMap
 from TankScripts.tankClass import Tank
 from TankScripts.tankSettings import tankSettings
-SIZE = 50
+SIZE = 20
 
-ENEMYS = 50
-REMOVE_HEALTH_PER_CHOICE = 1
+ENEMYS = 10
+REMOVE_HEALTH_PER_CHOICE = 0
 HEALTH_ENEMY= 50
 CHANCE_MUTATION = 100
 VALUE_MUTAION =5
 
-BONUSES = 2000
-BONUS_ADD = 100
+BONUSES = 100
+BONUS_ADD = 200
 BONUS_UP = 0.12
 
 WALLS_SPAWN = 0

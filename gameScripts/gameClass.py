@@ -55,7 +55,7 @@ class Game:
         self.game()
 
     def game(self):
-        self.choices = -100
+        self.choices = 0
 
         counter = 0
         while len(self.members) >0:
