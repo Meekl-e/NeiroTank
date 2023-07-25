@@ -1,6 +1,5 @@
-import random
 from copy import deepcopy
-import time
+
 
 import TankScripts.tankClass
 from TankScripts.tankSettings import tankSettings
@@ -56,18 +55,27 @@ class Game:
         self.game()
 
     def game(self):
-        self.choices = 0
+        self.choices = -100
 
         counter = 0
         while len(self.members) >0:
-            print(len(self.members))
-            if self.choices >= 10000 and SettingsMap.bonuses > 5:
+            print(len(self.members), self.choices)
+            if self.choices >= 10000 and SettingsMap.bonuses > 20:
                 self.choices = 0
                 self.bonusHelth+=self.addingBonus
-                SettingsMap.bonuses = SettingsMap.bonuses-5
+                SettingsMap.bonuses = SettingsMap.bonuses-10
                 counter+=1
+                with open("information.txt","a") as file:
+                    file.write(str(10000*counter)+" choices\n")
+                    file.write("Population: "+str(len(self.members))+"\n")
+                    file.write("BONUS_ADD: "+str(round(self.bonusHelth))+"\n")
+                    file.write("BONUSES: "+str(SettingsMap.bonuses)+"\n\n")
+
+                    file.close()
                 print(10000*counter,"choices")
                 print("Population:", len(self.members))
+                print("BONUSES:", SettingsMap.bonuses)
+                print("BONUS_ADD: ", self.bonusHelth)
                 self.saveBest()
             self.choices+=1
 
@@ -155,6 +163,7 @@ class Game:
         if c >= size:
             return
         self.map[y][x] = self.maxId
+        tankFather.spawns +=1
         tank = Tank(self.maxId, (x,y), self.window, gens=tankFather.matrixWeights, mutaion=tankFather.mut, chanceMutation=tankFather.chanceMutation, valueMutaion=tankFather.valueMutaion)
         self.maxId+=1
         self.members.append(tank)

@@ -2,7 +2,7 @@
 
 
 class tankSettings:
-    health = 100
+    health = 50
     visibleZone = int()
     chanceMutation = 4
     valueMutaion = 5

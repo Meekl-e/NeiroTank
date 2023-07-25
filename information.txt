@@ -1,0 +1,76 @@
+10000 choicesPopulation: 49410000 choicesPopulation: 5221000010000 choicesPopulation: 526100001000010000 choicesPopulation: 51610000 choices
+Population: 518
+
+1000010000 choices
+Population: 510
+
+100001000010000 choices
+Population: 534
+
+10000100001000010000 choices
+Population: 528
+
+1000010000100001000010000 choices
+Population: 509
+
+100001000010000100001000010000 choices
+Population: 521
+
+10000100001000010000100001000010000 choices
+Population: 535
+
+1000010000100001000010000100001000010000 choices
+Population: 544
+
+10000 choices
+Population: 521
+BONUSES: 1990
+
+20000 choices
+Population: 510
+BONUSES: 1980
+
+30000 choices
+Population: 518
+BONUSES: 1970
+
+10000 choices
+Population: 507
+BONUS_ADD: 0.12
+BONUSES: 1990
+
+20000 choices
+Population: 506
+BONUS_ADD: 0.12
+BONUSES: 1980
+
+10000 choices
+Population: 530
+BONUS_ADD: 100.12
+BONUSES: 1990
+
+20000 choices
+Population: 542
+BONUS_ADD: 100.24000000000001
+BONUSES: 1980
+
+30000 choices
+Population: 508
+BONUS_ADD: 100.36000000000001
+BONUSES: 1970
+
+40000 choices
+Population: 513
+BONUS_ADD: 100.48000000000002
+BONUSES: 1960
+
+50000 choices
+Population: 531
+BONUS_ADD: 100.60000000000002
+BONUSES: 1950
+
+60000 choices
+Population: 535
+BONUS_ADD: 100.72000000000003
+BONUSES: 1940
+

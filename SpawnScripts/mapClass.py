@@ -1,6 +1,5 @@
 import random as rnd
 from copy import deepcopy
-import numpy as np
 
 # -4 - бонус
 # -3 - враг

@@ -11,6 +11,7 @@ class Tank:
         self.oldPos = ()
         self.countOldPos = 0
         self.mut = mutaion
+        self.spawns = 0
         self.position = position
         self.matrixWeights = []
         self.window = window
@@ -19,7 +20,7 @@ class Tank:
 
         self.chanceMutation = chanceMutation
         self.valueMutaion = valueMutaion
-        self.healthSpawnTank = 200
+        self.healthSpawnTank = 100
         if gens == []:
             self.createWeights()
         else:
