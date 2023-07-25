@@ -12,10 +12,12 @@ def loadBest(visible):
     try:
         info = open("weightBestTank/info.txt", "r")
         lines = info.readlines()
-        tankSettings.chanceMutation = int(lines[1])
-        tankSettings.valueMutaion = int(lines[2])
-        tankSettings.health = int(lines[3]) // 2
-        tankSettings.mutation = int(lines[4])
+        SettingsMap.choices = int(lines[0])
+        SettingsMap.counter = int(lines[1])
+        tankSettings.chanceMutation = int(lines[2])
+        tankSettings.valueMutaion = int(lines[3])
+        tankSettings.health = int(lines[4]) // 2
+        tankSettings.mutation = int(lines[5])
         info.close()
         for line in range(visible * 2 + 1):
             lineWeights = []
@@ -57,25 +59,26 @@ class Game:
     def game(self):
         self.choices = 0
 
-        counter = 0
+        self.counter = SettingsMap.counter
         while len(self.members) >0:
             print(len(self.members), self.choices)
             if self.choices >= 10000 and SettingsMap.bonuses > 20:
                 self.choices = 0
                 self.bonusHelth+=self.addingBonus
                 SettingsMap.bonuses = SettingsMap.bonuses-10
-                counter+=1
+                self.counter+=1
                 with open("information.txt","a") as file:
-                    file.write(str(10000*counter)+" choices\n")
+                    file.write(str(10000*self.counter)+" choices\n")
                     file.write("Population: "+str(len(self.members))+"\n")
                     file.write("BONUS_ADD: "+str(round(self.bonusHelth))+"\n")
                     file.write("BONUSES: "+str(SettingsMap.bonuses)+"\n\n")
-
                     file.close()
-                print(10000*counter,"choices")
+                print(10000*self.counter,"choices")
                 print("Population:", len(self.members))
                 print("BONUSES:", SettingsMap.bonuses)
                 print("BONUS_ADD: ", self.bonusHelth)
+                self.saveBest()
+            if self.choices % 100 ==0:
                 self.saveBest()
             self.choices+=1
 
@@ -245,7 +248,8 @@ class Game:
                         best.matrixWeights[lineWeight][box][sensor][side] =best.matrixWeights[lineWeight][box][sensor][side] - minSide
 
         info = open("weightBestTank/info.txt", "w")
-        info.write(str(best.spawns)+"\n")
+        info.write(str(self.choices)+"\n")
+        info.write(str(self.counter)+"\n")
         info.write(str(best.chanceMutation)+"\n")
         info.write(str(best.valueMutaion)+"\n")
         info.write(str(best.healthSpawnTank)+"\n")

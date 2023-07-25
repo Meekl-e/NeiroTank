@@ -13,6 +13,8 @@ def loadData():
 
 def addToFile(x,y):
     f = open("TankScripts/dataFire/dataX.txt", "a")
+    if len(f.readlines()) > 100000:
+        return
     for s in x:
         f.write(str(s) + " ")
     f.write("\n")

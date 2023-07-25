@@ -9,3 +9,5 @@ class SettingsMap():
     maxMembers = int()
     difficult = int()
     bonusUp = float()
+    choices = 0
+    counter = 0
