@@ -64,7 +64,7 @@ class Game:
         while len(self.members) >0:
 
 
-            if self.choices >= 1000 and SettingsMap.bonuses > 20:
+            if self.choices >= 1000 and SettingsMap.bonuses > 10:
                 self.choices = 0
                 self.bonusHelth+=self.addingBonus
                 SettingsMap.bonuses = SettingsMap.bonuses-1
@@ -80,7 +80,7 @@ class Game:
                 print("BONUSES:", SettingsMap.bonuses)
                 print("BONUS_ADD: ", self.bonusHelth)
                 self.saveBest()
-            if self.choices % 500 ==0:
+            if self.choices % 100 ==0:
                 self.saveBest()
             self.choices+=1
 

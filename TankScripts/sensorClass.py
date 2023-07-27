@@ -3,11 +3,12 @@ import random as rnd
 
 
 class Sensor:
-    def __init__(self, r=0, l=0, u=0, d=0 ):
+    def __init__(self, r=0, l=0, u=0, d=0, type="" ):
         self.right = r
         self.left = l
         self.up = u
         self.down = d
+        self.type = type
     def __repr__(self):
         return f"[{self.right}-r,{self.left}-l,{self.up}-u,{self.down}-d]"
     def __str__(self):
@@ -27,14 +28,15 @@ class Sensor:
 
 class Box:
     def __init__(self, random=0):
-        if rnd != 0:
-            self.wall = Sensor(*map(lambda x:rnd.randint(-random,random),range(4) ))
-            self.bonus = Sensor(*map(lambda x:rnd.randint(-random,random),range(4) ))
-            self.enemy = Sensor(*map(lambda x:rnd.randint(-random,random),range(4) ))
+        if random != 0:
+
+            self.wall = Sensor(*map(lambda x:rnd.randint(-random,random),range(4) ), type="wall")
+            self.bonus = Sensor(*map(lambda x:rnd.randint(-random,random),range(4) ),type="bonus")
+            self.enemy = Sensor(*map(lambda x:rnd.randint(-random,random),range(4) ),type="enemy")
         else:
-            self.wall = Sensor()
-            self.bonus = Sensor()
-            self.enemy = Sensor()
+            self.wall = Sensor(type="wall")
+            self.bonus = Sensor(type="bonus")
+            self.enemy = Sensor(type="enemy")
     def getSensor(self, object):
         if object == "W":
             return self.wall
@@ -44,6 +46,13 @@ class Box:
             return Sensor(0,0,0,0)
         else:
             return self.enemy
+    def getSensorOfType(self, type):
+        if type == "bonus":
+            return self.bonus
+        elif type=="enemy":
+            return self.enemy
+        else:
+            return self.wall
     def __str__(self):
         return f"{self.wall} {self.enemy} {self.bonus}"
     def __repr__(self):

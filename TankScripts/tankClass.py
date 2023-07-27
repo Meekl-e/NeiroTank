@@ -1,4 +1,6 @@
 import random
+import time
+
 from TankScripts.sensorClass import Box
 from TankScripts.tankSettings import tankSettings
 from TankScripts.tankMainFire import CheckTank
@@ -17,12 +19,14 @@ class Tank:
         self.window = window
         self.lenMap = tankSettings.visibleZone*2+1
         self.id = id
-        self.test = None
+        self.randomSide = (False,0)
+        self.activeSensors = []
 
         self.chanceMutation = chanceMutation
         self.valueMutaion = valueMutaion
         self.healthSpawnTank = 100
         if gens == []:
+
             self.createWeights()
         else:
             self.matrixWeights = gens
@@ -57,6 +61,27 @@ class Tank:
 
         self.map = map
 
+        if self.randomSide[0]:
+
+            if self.randomSide[1] == "left":
+                for x,y,type in self.activeSensors:
+                    self.matrixWeights[y][x].getSensorOfType(type).left +=1
+            elif self.randomSide[1] == "right":
+                for x,y,type in self.activeSensors:
+
+                    self.matrixWeights[y][x].getSensorOfType(type).right += 1
+            elif self.randomSide[1] == "up":
+                for x,y,type in self.activeSensors:
+
+                    self.matrixWeights[y][x].getSensorOfType(type).up += 1
+            else:
+                for x,y,type in self.activeSensors:
+
+                    self.matrixWeights[y][x].getSensorOfType(type).down += 1
+            self.randomSide = (False,0)
+
+
+
      #   if self.test == None:
       #      if random.randint(0,200) == 1:
        #         self.test = CheckTank(map)
@@ -74,12 +99,14 @@ class Tank:
 
     def getSide(self):
         sides = {"right":0, "left":0,"down":0, "up":0}
+        self.activeSensors = []
         for y in range(self.lenMap):
             for x in range(self.lenMap):
                 if x == (self.lenMap-1)//2 and y == (self.lenMap-1)//2:
                     continue
                 control= self.matrixWeights[y][x].getSensor(self.map[y][x])
-
+                if control.type != "":
+                    self.activeSensors.append((x,y, control.type))
                 sides["right"] += control.right
                 sides["left"] += control.left
                 sides["up"] += control.up
@@ -87,9 +114,16 @@ class Tank:
         sides = zip(sides.keys(), sides.values())
         s = sorted(sides, key=lambda x:x[1], reverse=True)
 
+        if s[0][1] == s[1][1] == s[2][1] == s[3][1]:
+            self.randomSide = (True,random.choice(s)[0])
+            return self.randomSide[1]
+        if s[0][1] == s[1][1] == s[2][1]:
+            self.randomSide = (True, random.choice(s[:3])[0])
+            return self.randomSide[1]
         if s[0][1] == s[1][1]:
-            return random.choice(s)[0]
-
+            self.randomSide = (True, random.choice(s[:2])[0])
+            return self.randomSide[1]
+        self.randomSide = (False,0)
         return s[0][0]
     def setCoords(self, side):
 
