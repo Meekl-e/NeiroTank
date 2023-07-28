@@ -9,13 +9,13 @@ from TankScripts.tankSettings import tankSettings
 
 SIZE = 20
 
-ENEMYS = 10
+ENEMYS = 1
 REMOVE_HEALTH_PER_CHOICE = 1
 HEALTH_ENEMY= 50
 CHANCE_MUTATION = 100
 VALUE_MUTAION =5
 
-BONUSES = 200
+BONUSES = 0 #200
 BONUS_ADD = 100
 BONUS_UP = 0
 
@@ -33,7 +33,7 @@ settings.enemys = ENEMYS
 settings.bonuses = BONUSES
 settings.removeHealth = REMOVE_HEALTH_PER_CHOICE
 settings.wallsSpawns = WALLS_SPAWN
-settings.playerPosition = (1,1)
+settings.playerPosition = (5,5)
 settings.maxMembers = MAX_MEMBERS
 settings.bonusUp = BONUS_UP
 
@@ -47,15 +47,16 @@ tankSettings.valueMutaion = VALUE_MUTAION
 
 
 #window = None
-
+kill = False
 
 while True:
     gameClass.loadBest(VISIBLE_ZONE)
-    settings.bonuses = BONUSES
+    if kill:
+        settings.bonuses+=10
     settings.removeHealth = REMOVE_HEALTH_PER_CHOICE
     matrix = mapClass.Map(SIZE, settings)
-    # window = windowClass.Window(len(matrix.matrix))
-    # window.updateMatrix(matrix.matrix)
+    #window = windowClass.Window(len(matrix.matrix))
+    #window.updateMatrix(matrix.matrix)
     window = None
     members = []
     for m in range(1, len(matrix.enemysCords) + 1):
@@ -63,13 +64,14 @@ while True:
                             gens=tankSettings.matrixWeights, valueMutaion=tankSettings.valueMutaion,
                             chanceMutation=tankSettings.chanceMutation))
     g = gameClass.Game(map=matrix.matrix, bonusAdd=BONUS_ADD, members=members, window=window)
-    # SettingsMap.bonusUp = SettingsMap.bonusUp + 1
+    kill = True
+    #SettingsMap.bonusUp = SettingsMap.bonusUp + 1
     # window.destroy()
     with open("information.txt", "a") as file:
         file.write("END_GAME\n")
         file.close()
     print("BONUSES_WAS: ", SettingsMap.bonuses)
-    print("ADDING BONUS: ", SettingsMap.bonusUp - 0.02)
+    print("ADDING BONUS: ", SettingsMap.bonusUp)
     print("END GAME")
     print("=====================================")
 

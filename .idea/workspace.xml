@@ -4,14 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3200a7e6-af37-4d18-a453-1f9267bcd73f" name="Changes" comment="final">
+    <list default="true" id="3200a7e6-af37-4d18-a453-1f9267bcd73f" name="Changes" comment="addBetterRandom">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TankScripts/sensorClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/TankScripts/sensorClass.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TankScripts/tankClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/TankScripts/tankClass.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameScripts/gameClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameScripts/gameClass.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/information.txt" beforeDir="false" afterPath="$PROJECT_DIR$/information.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprites/enemySprite.png" beforeDir="false" afterPath="$PROJECT_DIR$/sprites/enemySprite.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprites/playerRightSprite.png" beforeDir="false" afterPath="$PROJECT_DIR$/sprites/playerRightSprite.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprites/playerUpSprite.png" beforeDir="false" afterPath="$PROJECT_DIR$/sprites/playerUpSprite.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weightBestTank/0.0.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/0.0.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weightBestTank/0.1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/0.1.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weightBestTank/0.2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/0.2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/0.3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/0.3.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weightBestTank/0.4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/0.4.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/0.5.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/0.5.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weightBestTank/0.6.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/0.6.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weightBestTank/1.0.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/1.0.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weightBestTank/1.1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/1.1.txt" afterDir="false" />
@@ -20,6 +26,7 @@
       <change beforePath="$PROJECT_DIR$/weightBestTank/1.4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/1.4.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weightBestTank/1.5.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/1.5.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weightBestTank/1.6.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/1.6.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/2.0.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/2.0.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weightBestTank/2.1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/2.1.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weightBestTank/2.2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/2.2.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weightBestTank/2.3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/2.3.txt" afterDir="false" />
@@ -28,6 +35,7 @@
       <change beforePath="$PROJECT_DIR$/weightBestTank/2.6.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/2.6.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weightBestTank/3.0.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/3.0.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weightBestTank/3.1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/3.1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/3.2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/3.2.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weightBestTank/3.3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/3.3.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weightBestTank/3.4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/3.4.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weightBestTank/3.5.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/3.5.txt" afterDir="false" />
@@ -39,6 +47,7 @@
       <change beforePath="$PROJECT_DIR$/weightBestTank/4.4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/4.4.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weightBestTank/4.5.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/4.5.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weightBestTank/4.6.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/4.6.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/5.0.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/5.0.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weightBestTank/5.1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/5.1.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weightBestTank/5.2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/5.2.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weightBestTank/5.3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/5.3.txt" afterDir="false" />
@@ -49,9 +58,11 @@
       <change beforePath="$PROJECT_DIR$/weightBestTank/6.1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/6.1.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weightBestTank/6.2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/6.2.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weightBestTank/6.3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/6.3.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weightBestTank/6.4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/6.4.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weightBestTank/6.5.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/6.5.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weightBestTank/6.6.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/6.6.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weightBestTank/info.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/info.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/window/windowClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/window/windowClass.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,12 +253,21 @@
       <option name="project" value="LOCAL" />
       <updated>1690281083615</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="addBetterRandom">
+      <option name="closed" value="true" />
+      <created>1690437320929</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1690437320929</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="t" />
     <MESSAGE value="final" />
-    <option name="LAST_COMMIT_MESSAGE" value="final" />
+    <MESSAGE value="addBetterRandom" />
+    <option name="LAST_COMMIT_MESSAGE" value="addBetterRandom" />
   </component>
 </project>

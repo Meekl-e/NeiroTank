@@ -20,9 +20,11 @@ class Window(Tk):
         self.sprites["enemy"] = PhotoImage(file="sprites/enemySprite.png", )
         self.sprites["playerUp"] = PhotoImage(file="sprites/playerUpSprite.png", )
         self.sprites["playerRight"] = PhotoImage(file="sprites/playerRightSprite.png", )
+        self.sprites["playerDown"] = PhotoImage(file="sprites/playerDownSprite.png", )
+        self.sprites["playerLeft"] = PhotoImage(file="sprites/playerLeftSprite.png", )
         self.sprites["bonus"] = PhotoImage(file="sprites/bonusSprite.png", )
-        self.sprites["wall"] = PhotoImage(file="sprites/wallSprite.png",)
-        self.sprites["path"] = PhotoImage(file="sprites/pathSprite.png",)
+        self.sprites["wall"] = PhotoImage(file="sprites/wallSprite.png", )
+        self.sprites["path"] = PhotoImage(file="sprites/pathSprite.png", )
 
     def __init__(self, size):
         super().__init__()
@@ -103,8 +105,12 @@ class Window(Tk):
             for x in range(len(self.matrix)):
                 if self.matrix[y][x] != idTank:
                     continue
-                if side in ["right","left"]:
+                if side == "right":
                     self.tanksSprites[idTank] = self.sprites["playerRight"]
+                elif side == "left":
+                    self.tanksSprites[idTank] = self.sprites["playerLeft"]
+                elif side == "down":
+                    self.tanksSprites[idTank] = self.sprites["playerDown"]
                 else:
                     self.tanksSprites[idTank] = self.sprites["playerUp"]
 

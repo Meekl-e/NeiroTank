@@ -19,6 +19,8 @@ def loadBest(visible):
         tankSettings.valueMutaion = int(lines[3])
         tankSettings.health = int(lines[4]) // 2
         tankSettings.mutation = int(lines[5])
+        SettingsMap.bonuses = int(lines[6])
+        SettingsMap.bonusUp = float(lines[7])
         info.close()
         for line in range(visible * 2 + 1):
             lineWeights = []
@@ -58,28 +60,30 @@ class Game:
         self.game()
 
     def game(self):
-        self.choices = -1000
+        self.choices = 0
 
         self.counter = SettingsMap.counter
         while len(self.members) >0:
 
-
-            if self.choices >= 1000 and SettingsMap.bonuses > 10:
+            if self.choices >= 1000 and SettingsMap.bonuses > 100:
                 self.choices = 0
-                self.bonusHelth+=self.addingBonus
-                SettingsMap.bonuses = SettingsMap.bonuses-1
-                self.counter+=1
-                with open("information.txt","a") as file:
-                    file.write(str(1000*self.counter)+" choices\n")
-                    file.write("Population: "+str(len(self.members))+"\n")
-                    file.write("BONUS_ADD: "+str(round(self.bonusHelth))+"\n")
-                    file.write("BONUSES: "+str(SettingsMap.bonuses)+"\n\n")
+                SettingsMap.bonuses = SettingsMap.bonuses - 1
+                self.counter += 1
+                with open("/home/Meekle/NeiroTank/information.txt", "a") as file:
+                    file.write(str(1000 * self.counter) + " choices\n")
+                    file.write("Population: " + str(len(self.members)) + "\n")
+                    file.write("BONUS_ADD: " + str(round(self.bonusHelth)) + "\n")
+                    file.write("BONUSES: " + str(SettingsMap.bonuses) + "\n\n")
                     file.close()
-                print(1000*self.counter,"choices")
-                print("Population:", len(self.members))
-                print("BONUSES:", SettingsMap.bonuses)
-                print("BONUS_ADD: ", self.bonusHelth)
-                self.saveBest()
+            if self.choices >= 10000:
+                self.choices = 0
+                SettingsMap.bonuses = SettingsMap.bonuses - 1
+                self.counter += 10
+                with open("/home/Meekle/NeiroTank/information.txt", "a") as file:
+                    file.write(str(1000 * self.counter) + " choices\n")
+                    file.write("Population: " + str(len(self.members)) + "\n")
+                    file.write("BONUS_ADD: " + str(round(self.bonusHelth)) + "\n")
+                    file.write("BONUSES: " + str(SettingsMap.bonuses) + "\n\n")
             if self.choices % 100 ==0:
                 self.saveBest()
             self.choices+=1
@@ -124,7 +128,7 @@ class Game:
             self.window.costChoice = SettingsMap.removeHealth
             self.window.bonuses = len(self.bonuses)
             self.window.updateMatrix(self.map)
-            time.sleep(0.01)
+            time.sleep(10)
 
 
             '''
@@ -207,7 +211,7 @@ class Game:
             for mem2 in self.members:
                 if m == mem2 or mem2.health<=0:
                     continue
-                    '''
+                '''
                 if self.checkPosition(m.position, mem2.position):
                     if m.health > mem2.health:
                         m.health += mem2.health
@@ -218,7 +222,7 @@ class Game:
                     else:
                         m.health = 0
                         mem2.health = 0
-                    '''
+                '''
                 if m.position == mem2.position:
 
                     m.health = 0
@@ -264,6 +268,8 @@ class Game:
         info.write(str(best.valueMutaion)+"\n")
         info.write(str(best.healthSpawnTank)+"\n")
         info.write(str(best.mut)+"\n")
+        info.write(str(SettingsMap.bonuses) +"\n")
+        info.write(str(SettingsMap.bonusUp)+"\n")
         info.close()
         for line in range(self.visible*2+1):
             for box in range(self.visible*2+1):
