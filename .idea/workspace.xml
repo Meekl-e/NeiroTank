@@ -6,12 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="3200a7e6-af37-4d18-a453-1f9267bcd73f" name="Changes" comment="addBetterRandom">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpawnScripts/mapClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpawnScripts/mapClass.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TankScripts/dataFire/dataX.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TankScripts/dataFire/dataY.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TankScripts/sensorClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/TankScripts/sensorClass.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TankScripts/tankClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/TankScripts/tankClass.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TankScripts/tankMainFire.py" beforeDir="false" afterPath="$PROJECT_DIR$/TankScripts/tankMainFire.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameScripts/gameClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameScripts/gameClass.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/information.txt" beforeDir="false" afterPath="$PROJECT_DIR$/information.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sprites/enemySprite.png" beforeDir="false" afterPath="$PROJECT_DIR$/sprites/enemySprite.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sprites/playerRightSprite.png" beforeDir="false" afterPath="$PROJECT_DIR$/sprites/playerRightSprite.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sprites/playerUpSprite.png" beforeDir="false" afterPath="$PROJECT_DIR$/sprites/playerUpSprite.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprites/enemySprite.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/weightBestTank/0.0.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/0.0.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weightBestTank/0.1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/0.1.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weightBestTank/0.2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/0.2.txt" afterDir="false" />
@@ -88,26 +91,31 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Users/Misha/MyFiles/программирование/python pro/урок 18 Магические методы. Конструктор класса&quot;,
+    &quot;ToolWindowRun.ShowToolbar&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Users/Misha/PycharmProjects/NeiroTankPlaying/weightBestTank&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Users\Misha\PycharmProjects\NeiroTankPlaying\weightBestTank" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Users\Misha\PycharmProjects\NeiroTank\gameScripts" />
     </key>
   </component>
   <component name="RunManager" selected="Python.main (1)">
     <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="NeiroTank" />
+      <module name="NeiroTankPlaying" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="D:\Users\Misha\AppData\Local\Programs\Python\Python311\python.exe" />
+      <option name="SDK_NAME" value="Python 3.11" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
@@ -261,7 +269,15 @@
       <option name="project" value="LOCAL" />
       <updated>1690437320929</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="addBetterRandom">
+      <option name="closed" value="true" />
+      <created>1690531947216</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1690531947216</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

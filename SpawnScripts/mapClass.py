@@ -17,7 +17,7 @@ class Map():
           self.matrix = [([1]*size).copy() for i in range(size)]
           self.enemysCords = []
           self.matrix[settings.playerPosition[1]][settings.playerPosition[0]] = 0
-          self.enemysCords.append(settings.playerPosition)
+
           self.createWalls()
           self.spawnEnemys()
           self.spawnBonus()
@@ -62,7 +62,7 @@ class Map():
                             else:
                                   self.matrix = newMatrix
     def spawnEnemys(self):
-          for e in range(self.settings.enemys-1):
+          for e in range(self.settings.enemys):
                 x = rnd.randint(0,self.size-1)
                 y =rnd.randint(0,self.size-1)
                 while self.matrix[y][x] <=0 or self.checkForPlayer(x,y)==True:
@@ -100,17 +100,16 @@ class Map():
     def convertPlayerEnemys(self):
           id = 1
           for x,y in self.enemysCords:
-                if self.matrix[y][x] == "P":
+                if self.matrix[y][x] == "E":
                       self.matrix[y][x] = id
                       id+=1
-                elif self.matrix[y][x] == "E":
-                      self.matrix[y][x] = id
-                      id+=1
-          self.matrix.insert(0, ["W"] * self.size)
-          self.matrix.append(["W"] * self.size)
+          self.matrix[self.settings.playerPosition[1]][self.settings.playerPosition[0]] = -1
+          self.matrix.insert(0, [0] * self.size)
+          self.matrix.append([0] * self.size)
           for line in range(len(self.matrix)):
-                self.matrix[line].append("W")
-                self.matrix[line].insert(0, "W")
+                self.matrix[line].append(0)
+                self.matrix[line].insert(0, 0)
+
           self.enemysCords = list(map(lambda x:(x[0]+1,x[1]+1), self.enemysCords))
     def checkForPlayer(self, x,y):
           for pos in self.enemysCords:

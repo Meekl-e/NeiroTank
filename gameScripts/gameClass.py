@@ -1,10 +1,10 @@
 import time
 from copy import deepcopy
-
+import keyboard
 
 import TankScripts.tankClass
 from TankScripts.tankSettings import tankSettings
-from TankScripts.tankClass import Tank
+from TankScripts.sensorClass import Box
 from SpawnScripts.SettingsClass import SettingsMap
 import random as rnd
 
@@ -15,17 +15,13 @@ def loadBest(visible):
         lines = info.readlines()
         SettingsMap.choices = int(lines[0])
         SettingsMap.counter = int(lines[1])
-        tankSettings.chanceMutation = int(lines[2])
-        tankSettings.valueMutaion = int(lines[3])
         tankSettings.health = int(lines[4]) // 2
-        tankSettings.mutation = int(lines[5])
-        SettingsMap.bonuses = int(lines[6])
-        SettingsMap.bonusUp = float(lines[7])
+
         info.close()
         for line in range(visible * 2 + 1):
             lineWeights = []
             for box in range(visible * 2 + 1):
-                b = TankScripts.tankClass.Box()
+                b = Box()
                 f = open(f"weightBestTank/{line}.{box}.txt", "r")
                 lines = f.readlines()
                 for sensor in range(3):
@@ -65,76 +61,84 @@ class Game:
         self.counter = SettingsMap.counter
         while len(self.members) >0:
 
-            if self.choices >= 1000 and SettingsMap.bonuses > 100:
-                self.choices = 0
-                SettingsMap.bonuses = SettingsMap.bonuses - 1
-                self.counter += 1
-                with open("/home/Meekle/NeiroTank/information.txt", "a") as file:
-                    file.write(str(1000 * self.counter) + " choices\n")
-                    file.write("Population: " + str(len(self.members)) + "\n")
-                    file.write("BONUS_ADD: " + str(round(self.bonusHelth)) + "\n")
-                    file.write("BONUSES: " + str(SettingsMap.bonuses) + "\n\n")
-                    file.close()
-            if self.choices >= 10000:
-                self.choices = 0
-                SettingsMap.bonuses = SettingsMap.bonuses - 1
-                self.counter += 10
-                with open("/home/Meekle/NeiroTank/information.txt", "a") as file:
-                    file.write(str(1000 * self.counter) + " choices\n")
-                    file.write("Population: " + str(len(self.members)) + "\n")
-                    file.write("BONUS_ADD: " + str(round(self.bonusHelth)) + "\n")
-                    file.write("BONUSES: " + str(SettingsMap.bonuses) + "\n\n")
-            if self.choices % 100 ==0:
-                self.saveBest()
-            self.choices+=1
-
-            while len(self.bonuses)< SettingsMap.bonuses:
+            if len(self.bonuses)< SettingsMap.bonuses:
 
                 self.spawnBonus()
 
             newMap = deepcopy(self.map)
+            hp=100
+
             for m in self.members:
 
-                m.health = m.health - 1
-                pos = m.position
-                m.choice(self.createVisibleZone(m.position, newMap))
-                newPos = m.position
-                if newPos == m.oldPos or pos == m.oldPos:
-                    if m.countOldPos == 3:
-                        m.health=0
-                    m.countOldPos += 1
+                if m.health <=0:
+                    continue
+
+                if m.id == -1:
+                    pos = m.position
+                    self.window.updateMatrix(newMap)#self.createVisibleZone(m.position, newMap))
+                    hp = m.health
+                    fire = self.fire(m.position, m.id, m.fire, newMap)
+                    m.fire = "None"
+                    while True:
+                        if keyboard.is_pressed("a"):
+                            self.window.updateSide(-1, "left")
+                            newPos = (pos[0] - 1, pos[1])
+                            break
+                        elif keyboard.is_pressed("w"):
+                            self.window.updateSide(-1, "up")
+                            newPos = (pos[0], pos[1] - 1)
+                            break
+                        elif keyboard.is_pressed("d"):
+                            self.window.updateSide(-1, "right")
+                            newPos = (pos[0] + 1, pos[1])
+                            break
+                        elif keyboard.is_pressed("s"):
+                            self.window.updateSide(-1, "down")
+                            newPos = (pos[0], pos[1] + 1)
+                            break
+
+
+                        if keyboard.is_pressed("up"):
+                            m.fire = "up"
+                        elif keyboard.is_pressed("down"):
+                            m.fire = "down"
+                        elif keyboard.is_pressed("left"):
+                            m.fire = "left"
+                        elif keyboard.is_pressed("right"):
+                            m.fire = "right"
+                        self.window.update()
+                    m.position = newPos
+
+                    time.sleep(0.05)
                 else:
-                    m.countOldPos = 0
+                    fire = self.fire(m.position, m.id, m.fire, newMap)
+                    pos = m.position
+                    m.choice(self.createVisibleZone(m.position, newMap))
+                    m.checkFire()
+                    newPos = m.position
+                print(fire)
+                if fire:
+                    self.removeHealth(fire, m.id)
+
+
+
+
+
                 if self.checkChoice(newPos):
                     self.map[pos[1]][pos[0]] = 0
                     self.map[newPos[1]][newPos[0]] = m.id
                 else:
                     m.position = pos
-                m.oldPos = pos
 
                 if self.checkBonus(newPos):
                     m.health+= round(self.bonusHelth)
 
-                if m.health >= m.healthSpawnTank:
-                    m.health = m.health - 50
-                    self.spawnTank(m)
-
-            '''
-
-            self.window.choices = self.choices
-            self.window.bestLife = self.choices
-            self.window.bestMutation = self.bonusHelth
-            self.window.tanks = len(self.members)
-            self.window.costChoice = SettingsMap.removeHealth
-            self.window.bonuses = len(self.bonuses)
-            self.window.updateMatrix(self.map)
-            time.sleep(10)
-
-
-            '''
+            self.window.healthT.config(text=f"XP: {hp}")
 
             self.checkMap()
-            self.checkMembers()
+            if self.checkMembers():
+                self.window.destroy()
+                return
 
         self.members.clear()
     def spawnBonus(self):
@@ -163,34 +167,19 @@ class Game:
             return False
         return True
 
-    def spawnTank(self, tankFather):
-        size = len(self.map)
-        x = rnd.randint(1, size - 2)
-        y = rnd.randint(1, size - 2)
-        o = self.map[y][x]
-        c = 0
-        while ((str(o) != "0" and str(o) !="B") or any(map(lambda t:self.checkPosition(t.position, (x,y)), self.members))) and c<size:
-            c+=1
-            x = rnd.randint(1, size - 2)
-            y = rnd.randint(1, size - 2)
-            o = self.map[y][x]
-        if c >= size:
-            return
-        self.map[y][x] = self.maxId
-        tankFather.spawns +=1
-        tank = Tank(self.maxId, (x,y), self.window, gens=tankFather.matrixWeights, mutaion=tankFather.mut, chanceMutation=tankFather.chanceMutation, valueMutaion=tankFather.valueMutaion)
-        self.maxId+=1
-        self.members.append(tank)
-
 
     def createVisibleZone(self, pos, oldMap):
         x,y = pos
+
         visibleMap = []
         for yT in range(y - self.visible, y+self.visible+1):
             visibleLine = []
-            for xT in range(x - self.visible, x+self.visible+1):
+            for xT in range(x - self.visible, x+self.visible+2):
                 if xT <= -1 or xT >= len(self.map) or yT <=-1 or yT >=len(self.map):
-                    visibleLine.append(-1)
+                    if oldMap[y][x] == -1:
+                        visibleLine.append("W")
+                    else:
+                        visibleLine.append(-1)
                 else:
                     visibleLine.append(oldMap[yT][xT])
             visibleMap.append(visibleLine)
@@ -211,72 +200,89 @@ class Game:
             for mem2 in self.members:
                 if m == mem2 or mem2.health<=0:
                     continue
-                '''
-                if self.checkPosition(m.position, mem2.position):
-                    if m.health > mem2.health:
-                        m.health += mem2.health
-                        mem2.health = 0
-                    elif m.health < mem2.health:
-                        mem2.health+=m.health
-                        m.health = 0
-                    else:
-                        m.health = 0
-                        mem2.health = 0
-                '''
                 if m.position == mem2.position:
-
                     m.health = 0
+                    mem2.health = 0
+
+
 
     def checkMembers(self):
         newMem = []
         for m in self.members:
-
             if m.health > 0:
                 newMem.append(m)
+            elif m.id == -1:
+                return True
             else:
                 self.map[m.position[1]][m.position[0]] = 0
         self.members = newMem
 
-    def checkPosition(self, position, position2):
-        if position[0] == position2[0] and abs(position[1] - position2[1]) == 1:
-            return True
-        if position[1] == position2[1] and abs(position[0] - position2[0]) == 1:
-            return True
-        return False
+    def removeHealth(self, idRemove, idAdd):
+        print(idRemove, idAdd)
+        for tank in self.members:
+            if idRemove == tank.id:
+                tank.health -=50
+            if idAdd == tank.id:
+                tank.health +=25
 
-    def saveBest(self):
-        best = max( self.members, key=lambda x:x.spawns)
-        print("MUTATION:", best.mut)
-        try:
-            info = open("weightBestTank/info.txt","x")
-            info.write("0")
-            info.close()
-        except FileExistsError:
-            pass
-        '''
-        for lineWeight in range(self.visible*2+1):
-            for box in range(self.visible*2+1):
-                for sensor in range(len(best.matrixWeights[lineWeight][box])):
-                    minSide = min(best.matrixWeights[lineWeight][box][sensor])
-                    for side in range(4):
-                        best.matrixWeights[lineWeight][box][sensor][side] =best.matrixWeights[lineWeight][box][sensor][side] - minSide
-'''
-        info = open("weightBestTank/info.txt", "w")
-        info.write(str(self.choices)+"\n")
-        info.write(str(self.counter)+"\n")
-        info.write(str(best.chanceMutation)+"\n")
-        info.write(str(best.valueMutaion)+"\n")
-        info.write(str(best.healthSpawnTank)+"\n")
-        info.write(str(best.mut)+"\n")
-        info.write(str(SettingsMap.bonuses) +"\n")
-        info.write(str(SettingsMap.bonusUp)+"\n")
-        info.close()
-        for line in range(self.visible*2+1):
-            for box in range(self.visible*2+1):
-                f = open(f"weightBestTank/{line}.{box}.txt", "w")
-                for sensor in best.matrixWeights[line][box]:
-                    f.write(str(sensor)+"\n")
-                f.close()
+
+    def fire(self, position, id, side, map):
+        print([side])
+        if side == "None":
+            return False
+        elif side == "left":
+
+            for x in range(position[0]-1, position[0]-self.visible-1,-1):
+                if x < 0:
+                    continue
+                if map[position[1]][x] == id:
+                    continue
+                if (type(map[position[1]][x]) == type(int())) and (map[position[1]][x] > 0 or map[position[1]][x] == -1):
+                    return map[position[1]][x]
+                self.window.setFire(x, position[1])
+            return False
+        elif side == "right":
+            for x in range(position[0] + 1, position[0] + self.visible + 1):
+
+                if x >= len(map):
+                    continue
+                if map[position[1]][x] == id:
+                    continue
+
+                elif (type(map[position[1]][x]) == type(int())) and (
+                        map[position[1]][x] > 0 or map[position[1]][x] == -1):
+                    return map[position[1]][x]
+                self.window.setFire(x,position[1])
+            return False
+
+        elif side == "down":
+            for y in range(position[1] + 1, position[1] + self.visible + 1):
+                if y >= len(map):
+                    continue
+                if map[y][position[0]] == id:
+                    continue
+
+                elif (type(map[y][position[0]]) == type(int())) and (
+                        map[y][position[0]] > 0 or map[y][position[0]] == -1):
+                    return map[y][position[0]]
+                self.window.setFire(position[0], y)
+            return False
+        elif side == "up":
+            for y in range(position[1] - 1, position[1] - self.visible - 1,-1):
+                if y < 0:
+                    continue
+                if map[y][position[0]] == id:
+                    continue
+
+                if (type(map[y][position[0]]) == type(int())) and (map[y][position[0]] > 0 or map[y][position[0]] == -1):
+                    print("RETUUU")
+                    return map[y][position[0]]
+                self.window.setFire(position[0], y)
+            return False
+
+
+
+
 
 
 

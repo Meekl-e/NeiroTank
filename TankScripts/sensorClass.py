@@ -42,6 +42,7 @@ class Box:
             return self.wall
         elif object == "B":
             return self.bonus
+
         elif object <= 0:
             return Sensor(0,0,0,0)
         else:
