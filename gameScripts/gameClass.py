@@ -1,7 +1,7 @@
 import time
 from copy import deepcopy
 
-
+import TankScripts.sensorClass
 import TankScripts.tankClass
 from TankScripts.tankSettings import tankSettings
 from TankScripts.tankClass import Tank
@@ -25,7 +25,7 @@ def loadBest(visible):
         for line in range(visible * 2 + 1):
             lineWeights = []
             for box in range(visible * 2 + 1):
-                b = TankScripts.tankClass.Box()
+                b = TankScripts.sensorClass.Box()
                 f = open(f"weightBestTank/{line}.{box}.txt", "r")
                 lines = f.readlines()
                 for sensor in range(3):

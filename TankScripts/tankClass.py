@@ -1,25 +1,59 @@
 import random
+import time
 
+from TankScripts.sensorClass import Box
 from TankScripts.tankSettings import tankSettings
-
+from TankScripts.tankMainFire import CheckTank
 
 
 class Tank:
-    def __init__(self, id, position, window, NN  ):
-        self.neuralNetwork = NN
-        self.health = tankSettings.health
-        self.position = position
-        self.window = window
+    def __init__(self, id, position, window, gens=[], mutaion=0, chanceMutation =tankSettings.chanceMutation, valueMutaion = tankSettings.valueMutaion ):
 
-        self.fire = "None"
+        self.health = tankSettings.health #healthSpawn//2
+        self.oldPos = ()
+        self.countOldPos = 0
+        self.mut = mutaion
+        self.spawns = 0
+        self.position = position
+        self.matrixWeights = []
+        self.window = window
         self.lenMap = tankSettings.visibleZone*2+1
         self.id = id
-        self.randomSide  = (False, 0)
+        self.randomSide = (False,0)
         self.activeSensors = []
 
-
+        self.chanceMutation = chanceMutation
+        self.valueMutaion = valueMutaion
         self.healthSpawnTank = 100
-        self.matrixWeights = tankSettings.matrixWeights
+        if gens == []:
+
+            self.createWeights()
+        else:
+            self.matrixWeights = gens
+        self.mutation()
+
+    def createWeights(self):
+        if tankSettings.matrixWeights:
+            self.matrixWeights =tankSettings.matrixWeights
+            return
+        for y in range(self.lenMap):
+            lineWeights = []
+            for x in range(self.lenMap):
+                lineWeights.append(Box(random=3))
+            self.matrixWeights.append(lineWeights)
+
+
+    def mutation(self):
+        for line in range(len(self.matrixWeights)):
+            for weight in range(len(self.matrixWeights[line])):
+                if random.randint(1,self.chanceMutation) == 1:
+                    self.mut += 1
+                    for box in range(len(self.matrixWeights[line][weight])):
+                        for side in range(4):
+                            self.matrixWeights[line][weight][box][side] = self.matrixWeights[line][weight][box][side] + random.randint(-self.valueMutaion,self.valueMutaion)
+
+
+        #print(self.matrixWeights)
 
 
 
@@ -46,12 +80,21 @@ class Tank:
                     self.matrixWeights[y][x].getSensorOfType(type).down += 1
             self.randomSide = (False,0)
 
+
+
+     #   if self.test == None:
+      #      if random.randint(0,200) == 1:
+       #         self.test = CheckTank(map)
+        #else:
+         #   self.test.saveChoice(map)
+          #  self.test = None
+
+        #print(self.map)
+       # for l in self.map:
+         #   print(l)
+        #print(self.getSide())
+
         self.setCoords(self.getSide())
-
-    def checkFire(self):
-
-        self.fire = random.choice(["right","left","up","down"])#self.neuralNetwork.predict(self.map)
-        return self.fire
 
 
     def getSide(self):
@@ -86,7 +129,7 @@ class Tank:
 
         x,y = self.position
 
-        self.window.updateSide(self.id, side)
+#        self.window.updateSide(self.id, side)
         if side=="right":
             self.position = (x+1, y)
         elif side=="up":
@@ -95,7 +138,6 @@ class Tank:
             self.position = (x-1, y)
         elif side=="down":
             self.position = (x, y+1)
-
 
 
 
