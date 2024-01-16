@@ -4,17 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3200a7e6-af37-4d18-a453-1f9267bcd73f" name="Changes" comment="addBetterRandom">
+    <list default="true" id="3200a7e6-af37-4d18-a453-1f9267bcd73f" name="Changes" comment="README add">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SpawnScripts/mapClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpawnScripts/mapClass.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TankScripts/dataFire/dataX.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TankScripts/dataFire/dataY.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TankScripts/sensorClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/TankScripts/sensorClass.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TankScripts/tankClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/TankScripts/tankClass.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TankScripts/tankMainFire.py" beforeDir="false" afterPath="$PROJECT_DIR$/TankScripts/tankMainFire.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TankScripts/tankMainFire.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TankScripts/tankSettings.py" beforeDir="false" afterPath="$PROJECT_DIR$/TankScripts/tankSettings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameScripts/gameClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameScripts/gameClass.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sprites/enemySprite.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/weightBestTank/0.0.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/0.0.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weightBestTank/0.1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/0.1.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weightBestTank/0.2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weightBestTank/0.2.txt" afterDir="false" />
@@ -82,20 +81,23 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2SjWcjWSWC0hwdEVrlVBKhGh4Q6" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;ToolWindowRun.ShowToolbar&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Users/Misha/PycharmProjects/NeiroTankPlaying/weightBestTank&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "ToolWindowRun.ShowToolbar": "false",
+    "last_opened_file_path": "D:/Users/Misha/PycharmProjects/NeiroTankPlaying",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Users\Misha\PycharmProjects\NeiroTankPlaying\weightBestTank" />
@@ -148,7 +150,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="tankMainFire" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="t" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="NeiroTankPlaying" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/t.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tankMainFireold" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="NeiroTank" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -160,7 +183,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TankScripts/tankMainFire.py" />
+      <option name="SCRIPT_NAME" value="D:\Users\Misha\PycharmProjects\NeiroTankPlaying\TankScripts\tankMainFireold.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -214,13 +237,17 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.main (1)" />
-        <item itemvalue="Python.tankMainFire" />
+        <item itemvalue="Python.t" />
+        <item itemvalue="Python.tankMainFireold" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.windowClass" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\Misha\AppData\Roaming\Subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="3200a7e6-af37-4d18-a453-1f9267bcd73f" name="Changes" comment="" />
@@ -277,13 +304,34 @@
       <option name="project" value="LOCAL" />
       <updated>1690531947216</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Playing Update">
+      <option name="closed" value="true" />
+      <created>1691748769871</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1691748769871</updated>
+    </task>
+    <task id="LOCAL-00008" summary="README add">
+      <option name="closed" value="true" />
+      <created>1691749020438</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1691749020438</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
     <MESSAGE value="t" />
     <MESSAGE value="final" />
     <MESSAGE value="addBetterRandom" />
-    <option name="LAST_COMMIT_MESSAGE" value="addBetterRandom" />
+    <MESSAGE value="Playing Update" />
+    <MESSAGE value="README add" />
+    <option name="LAST_COMMIT_MESSAGE" value="README add" />
   </component>
 </project>

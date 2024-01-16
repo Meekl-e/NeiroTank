@@ -1,12 +1,11 @@
 import random
 
 from TankScripts.tankSettings import tankSettings
-
+from TankScripts.AIfire import check_fire
 
 
 class Tank:
-    def __init__(self, id, position, window, NN  ):
-        self.neuralNetwork = NN
+    def __init__(self, id, position, window  ):
         self.health = tankSettings.health
         self.position = position
         self.window = window
@@ -47,10 +46,11 @@ class Tank:
             self.randomSide = (False,0)
 
         self.setCoords(self.getSide())
+        self.checkFire()
 
     def checkFire(self):
 
-        self.fire = random.choice(["right","left","up","down"])#self.neuralNetwork.predict(self.map)
+        self.fire = check_fire(self.map)
         return self.fire
 
 

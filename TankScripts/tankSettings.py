@@ -8,5 +8,6 @@ class tankSettings:
     valueMutaion = 5
     matrixWeights = []
     mutation = int()
+    playerID = int()
 
 

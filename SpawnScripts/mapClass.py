@@ -1,6 +1,9 @@
 import random as rnd
 from copy import deepcopy
 
+from TankScripts.tankSettings import tankSettings
+
+
 # -4 - бонус
 # -3 - враг
 # -2 - стена

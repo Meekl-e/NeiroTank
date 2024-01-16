@@ -2,9 +2,7 @@ from tkinter import *
 from copy import deepcopy
 
 from SpawnScripts.SettingsClass import SettingsMap
-
-
-
+from TankScripts.tankSettings import tankSettings
 
 
 # E - enemy
@@ -68,7 +66,8 @@ class Window(Tk):
             for x in range(len(self.matrix)):
                 if self.matrix[y][x] != idTank:
                     continue
-                if idTank == -1:
+                print(tankSettings.playerID)
+                if idTank == tankSettings.playerID:
                     if side == "right":
                         self.tanksSprites[idTank] = self.sprites["enemyRight"]
                     elif side == "left":
@@ -104,7 +103,7 @@ class Window(Tk):
                     if self.tanksSprites.get(o) is None:
                         self.tanksSprites[o] = self.sprites["playerUp"]
                     self.matrixLabels[y][x].config(image=self.tanksSprites[o])
-                elif o ==-1:
+                elif o ==tankSettings.playerID or o==-1:
                     if self.tanksSprites.get(o) is None:
                         self.tanksSprites[o] = self.sprites["enemyUp"]
                     self.matrixLabels[y][x].config(image=self.tanksSprites[o])

@@ -5,6 +5,7 @@ import keyboard
 import TankScripts.tankClass
 from TankScripts.tankSettings import tankSettings
 from TankScripts.sensorClass import Box
+from TankScripts.AIfire import check_fire
 from SpawnScripts.SettingsClass import SettingsMap
 import random as rnd
 
@@ -73,30 +74,30 @@ class Game:
                 if m.health <=0:
                     continue
 
-                if m.id == -1:
+                if m.id == tankSettings.playerID:
                     pos = m.position
+                    visibleZone = self.createVisibleZone(m.position, newMap)
                     self.window.updateMatrix(newMap)#self.createVisibleZone(m.position, newMap))
                     hp = m.health
                     fire = self.fire(m.position, m.id, m.fire, newMap)
-                    m.fire = "None"
+                    m.fire = check_fire(visibleZone)
                     while True:
                         if keyboard.is_pressed("a"):
-                            self.window.updateSide(-1, "left")
+                            self.window.updateSide(tankSettings.playerID, "left")
                             newPos = (pos[0] - 1, pos[1])
                             break
                         elif keyboard.is_pressed("w"):
-                            self.window.updateSide(-1, "up")
+                            self.window.updateSide(tankSettings.playerID, "up")
                             newPos = (pos[0], pos[1] - 1)
                             break
                         elif keyboard.is_pressed("d"):
-                            self.window.updateSide(-1, "right")
+                            self.window.updateSide(tankSettings.playerID, "right")
                             newPos = (pos[0] + 1, pos[1])
                             break
                         elif keyboard.is_pressed("s"):
-                            self.window.updateSide(-1, "down")
+                            self.window.updateSide(tankSettings.playerID, "down")
                             newPos = (pos[0], pos[1] + 1)
                             break
-
 
                         if keyboard.is_pressed("up"):
                             m.fire = "up"
@@ -114,7 +115,7 @@ class Game:
                     fire = self.fire(m.position, m.id, m.fire, newMap)
                     pos = m.position
                     m.choice(self.createVisibleZone(m.position, newMap))
-                    m.checkFire()
+                    #m.checkFire()
                     newPos = m.position
                 print(fire)
                 if fire:
@@ -161,9 +162,9 @@ class Game:
 
         if newPos in self.walls:
             return False
-        elif newPos[0] <= -1 or newPos[0] >= len(self.map)-1:
+        elif newPos[0] <= -1 or newPos[0] >= len(self.map):
             return False
-        elif newPos[1] <= -1 or newPos[1] >= len(self.map)-1:
+        elif newPos[1] <= -1 or newPos[1] >= len(self.map):
             return False
         return True
 
@@ -211,7 +212,7 @@ class Game:
         for m in self.members:
             if m.health > 0:
                 newMem.append(m)
-            elif m.id == -1:
+            elif m.id == tankSettings.playerID:
                 return True
             else:
                 self.map[m.position[1]][m.position[0]] = 0
