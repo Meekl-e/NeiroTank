@@ -28,7 +28,7 @@ settings.enemys = ENEMYS
 #settings.respawnEnemys = RESPAWN_ENEMYS
 settings.bonuses = BONUSES
 settings.wallsSpawns = WALLS_SPAWN
-settings.playerPosition = (5,5)
+settings.playerPosition = (3,5)
 
 
 tankSettings.visibleZone = VISIBLE_ZONE

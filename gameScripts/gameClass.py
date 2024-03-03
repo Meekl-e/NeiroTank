@@ -62,6 +62,7 @@ class Game:
         self.counter = SettingsMap.counter
         while len(self.members) >0:
 
+
             if len(self.bonuses)< SettingsMap.bonuses:
 
                 self.spawnBonus()
@@ -71,16 +72,17 @@ class Game:
 
             for m in self.members:
 
+
                 if m.health <=0:
                     continue
 
                 if m.id == tankSettings.playerID:
+                    self.window.updateMatrix(newMap)
                     pos = m.position
                     visibleZone = self.createVisibleZone(m.position, newMap)
-                    self.window.updateMatrix(newMap)#self.createVisibleZone(m.position, newMap))
+                    #self.createVisibleZone(m.position, newMap))
                     hp = m.health
-                    fire = self.fire(m.position, m.id, m.fire, newMap)
-                    m.fire = check_fire(visibleZone)
+
                     while True:
                         if keyboard.is_pressed("a"):
                             self.window.updateSide(tankSettings.playerID, "left")
@@ -108,19 +110,15 @@ class Game:
                         elif keyboard.is_pressed("right"):
                             m.fire = "right"
                         self.window.update()
-                    m.position = newPos
 
+                    m.position = newPos
                     time.sleep(0.05)
                 else:
-                    fire = self.fire(m.position, m.id, m.fire, newMap)
+
                     pos = m.position
                     m.choice(self.createVisibleZone(m.position, newMap))
-                    #m.checkFire()
-                    newPos = m.position
-                print(fire)
-                if fire:
-                    self.removeHealth(fire, m.id)
 
+                    newPos = m.position
 
 
 
@@ -130,9 +128,14 @@ class Game:
                     self.map[newPos[1]][newPos[0]] = m.id
                 else:
                     m.position = pos
+               # m.checkFire()
+                #fire = self.fire(m.position, m.id, m.fire, newMap)
+                #if fire:
+                 #   self.removeHealth(fire, m.id)
 
                 if self.checkBonus(newPos):
                     m.health+= round(self.bonusHelth)
+
 
             self.window.healthT.config(text=f"XP: {hp}")
 
@@ -140,6 +143,8 @@ class Game:
             if self.checkMembers():
                 self.window.destroy()
                 return
+
+
 
         self.members.clear()
     def spawnBonus(self):
@@ -228,7 +233,7 @@ class Game:
 
 
     def fire(self, position, id, side, map):
-        print([side])
+
         if side == "None":
             return False
         elif side == "left":
@@ -276,7 +281,7 @@ class Game:
                     continue
 
                 if (type(map[y][position[0]]) == type(int())) and (map[y][position[0]] > 0 or map[y][position[0]] == -1):
-                    print("RETUUU")
+
                     return map[y][position[0]]
                 self.window.setFire(position[0], y)
             return False

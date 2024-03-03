@@ -11,6 +11,7 @@ class Tank:
         self.window = window
 
         self.fire = "None"
+        self.map = None
         self.lenMap = tankSettings.visibleZone*2+1
         self.id = id
         self.randomSide  = (False, 0)
@@ -46,11 +47,11 @@ class Tank:
             self.randomSide = (False,0)
 
         self.setCoords(self.getSide())
-        self.checkFire()
+
 
     def checkFire(self):
-
-        self.fire = check_fire(self.map)
+        if self.map != None:
+            self.fire = check_fire(self.map)
         return self.fire
 
 

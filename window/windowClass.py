@@ -1,3 +1,4 @@
+import time
 from tkinter import *
 from copy import deepcopy
 
@@ -89,6 +90,7 @@ class Window(Tk):
                     return
 
     def updateMatrix(self, newMatrix):
+        global c
         self.matrix = deepcopy(newMatrix)
         for y in range(len(newMatrix)):
             for x in range(len(newMatrix)):
@@ -109,6 +111,7 @@ class Window(Tk):
                     self.matrixLabels[y][x].config(image=self.tanksSprites[o])
 
         self.update()
+
     def setFire(self, x,y):
         self.matrixLabels[y][x].config(image=self.sprites["fire"])
         self.update()
@@ -117,6 +120,8 @@ class Window(Tk):
 
 
 
+
+c = 0
 
 
 
