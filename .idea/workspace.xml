@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3200a7e6-af37-4d18-a453-1f9267bcd73f" name="Changes" comment="Commit">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TankScripts/tankClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/TankScripts/tankClass.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameScripts/gameClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameScripts/gameClass.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/window/windowClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/window/windowClass.py" afterDir="false" />
-    </list>
+    <list default="true" id="3200a7e6-af37-4d18-a453-1f9267bcd73f" name="Changes" comment="Commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -273,7 +267,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705399459073</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Commit">
+      <option name="closed" value="true" />
+      <created>1709472092801</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1709472092801</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -80,7 +80,7 @@ class Game:
                     self.window.updateMatrix(newMap)
                     pos = m.position
                     visibleZone = self.createVisibleZone(m.position, newMap)
-                    #self.createVisibleZone(m.position, newMap))
+                    #self.createVisibleZone(m.position, newMap)
                     hp = m.health
 
                     while True:
@@ -128,10 +128,10 @@ class Game:
                     self.map[newPos[1]][newPos[0]] = m.id
                 else:
                     m.position = pos
-               # m.checkFire()
-                #fire = self.fire(m.position, m.id, m.fire, newMap)
-                #if fire:
-                 #   self.removeHealth(fire, m.id)
+                m.checkFire()
+                fire = self.fire(m.position, m.id, m.fire, newMap)
+                if fire:
+                    self.removeHealth(fire, m.id)
 
                 if self.checkBonus(newPos):
                     m.health+= round(self.bonusHelth)
