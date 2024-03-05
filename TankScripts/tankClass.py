@@ -18,7 +18,7 @@ class Tank:
         self.activeSensors = []
 
 
-        self.healthSpawnTank = 100
+
         self.matrixWeights = tankSettings.matrixWeights
 
 

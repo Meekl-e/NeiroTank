@@ -9,16 +9,11 @@ from TankScripts.AIfire import check_fire
 from SpawnScripts.SettingsClass import SettingsMap
 import random as rnd
 
+from gameScripts import gameSettings
+
 
 def loadBest(visible):
     try:
-        info = open("weightBestTank/info.txt", "r")
-        lines = info.readlines()
-        SettingsMap.choices = int(lines[0])
-        SettingsMap.counter = int(lines[1])
-        tankSettings.health = int(lines[4]) // 2
-
-        info.close()
         for line in range(visible * 2 + 1):
             lineWeights = []
             for box in range(visible * 2 + 1):
@@ -57,9 +52,6 @@ class Game:
         self.game()
 
     def game(self):
-        self.choices = 0
-
-        self.counter = SettingsMap.counter
         while len(self.members) >0:
 
 
@@ -68,20 +60,22 @@ class Game:
                 self.spawnBonus()
 
             newMap = deepcopy(self.map)
-            hp=100
 
+            hp = tankSettings.health
             for m in self.members:
 
-
+                m.map = self.createVisibleZone(m.position, newMap)
                 if m.health <=0:
                     continue
 
                 if m.id == tankSettings.playerID:
                     self.window.updateMatrix(newMap)
                     pos = m.position
-                    visibleZone = self.createVisibleZone(m.position, newMap)
-                    #self.createVisibleZone(m.position, newMap)
+                    #visibleZone = self.createVisibleZone(m.position, newMap)
+
                     hp = m.health
+                    if gameSettings.GameSettings.difficult == 1:
+                        m.checkFire()
 
                     while True:
                         if keyboard.is_pressed("a"):
@@ -103,11 +97,11 @@ class Game:
 
                         if keyboard.is_pressed("up"):
                             m.fire = "up"
-                        elif keyboard.is_pressed("down"):
+                        if keyboard.is_pressed("down"):
                             m.fire = "down"
-                        elif keyboard.is_pressed("left"):
+                        if keyboard.is_pressed("left"):
                             m.fire = "left"
-                        elif keyboard.is_pressed("right"):
+                        if keyboard.is_pressed("right"):
                             m.fire = "right"
                         self.window.update()
 
@@ -128,16 +122,21 @@ class Game:
                     self.map[newPos[1]][newPos[0]] = m.id
                 else:
                     m.position = pos
-                m.checkFire()
-                fire = self.fire(m.position, m.id, m.fire, newMap)
-                if fire:
-                    self.removeHealth(fire, m.id)
+                if gameSettings.GameSettings.difficult != 0 and m.id != tankSettings.playerID:
+                    m.checkFire()
+                    fire = self.fire(m.position, m.id, m.fire, newMap)
+                    if fire:
+                        self.removeHealth(fire, m.id)
+                elif m.id == tankSettings.playerID:
+                    fire = self.fire(m.position, m.id, m.fire, newMap)
+                    if fire:
+                        self.removeHealth(fire, m.id)
 
                 if self.checkBonus(newPos):
                     m.health+= round(self.bonusHelth)
 
-
-            self.window.healthT.config(text=f"XP: {hp}")
+            if gameSettings.GameSettings.difficult !=0:
+                self.window.healthT.config(text=f"Здоровье: {hp}")
 
             self.checkMap()
             if self.checkMembers():

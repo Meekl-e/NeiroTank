@@ -43,6 +43,8 @@ tankSettings.health = HEALTH_ENEMY
 while True:
     gameClass.loadBest(VISIBLE_ZONE)
     matrix = mapClass.Map(SIZE, settings)
+    for m in matrix.matrix:
+        print(m)
     window = windowClass.Window(SIZE+2)#tankSettings.visibleZone*2+1)
 
     members = []

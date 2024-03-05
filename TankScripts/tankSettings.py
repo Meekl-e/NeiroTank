@@ -2,12 +2,10 @@
 
 
 class tankSettings:
-    health = 50
+    health = 1
     visibleZone = int()
-    chanceMutation = 4
-    valueMutaion = 5
     matrixWeights = []
-    mutation = int()
     playerID = int()
+    visibleZone = 5
 
 

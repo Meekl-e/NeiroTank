@@ -1,13 +1,9 @@
-class SettingsMap():
+class SettingsMap:
     enemys = int()
-    respawnEnemys = int()
-    playerPosition = ()
+    playerPosition = (3,5)
     bonuses = int()
-    wallsSpawns = int()
-    vizibleZone = int()
-    removeHealth = int()
-    maxMembers = int()
-    difficult = int()
-    bonusUp = float()
-    choices = 0
-    counter = 0
+    wallsSpawns = 0
+    vizibleZone = 5
+    removeHealth =0
+    maxMembers = 999
+    bonusUp = 50
