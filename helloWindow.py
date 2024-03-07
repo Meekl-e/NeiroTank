@@ -16,10 +16,10 @@ class startWindow(Tk):
         self.difficult = 0
         self.tankSprite = PhotoImage(file="sprites/tankMenu.png")
         self.In_menu = True
-        self.canvas = Canvas(self, width=self.winfo_screenwidth(), height=self.winfo_screenheight(), bg="palegreen3",borderwidth=0,
+        self.canvas = Canvas(self, width=1536, height=864, bg="palegreen3",borderwidth=0,
                              cursor="target")
         self.canvas.pack()
-
+        self.resizable(width=False, height=False)
         self.overrideredirect(1)
         self.state('zoomed')
         self.draw_interface()

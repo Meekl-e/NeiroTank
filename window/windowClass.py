@@ -35,6 +35,8 @@ class Window(Tk):
         super().__init__()
         self.overrideredirect(1)
         self.state('zoomed')
+        self.geometry("1536x864")
+        self.resizable(width=False, height=False)
 
         self.choices = 0
         self.bestLife = 0
