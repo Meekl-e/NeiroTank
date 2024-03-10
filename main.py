@@ -4,7 +4,7 @@ from gameScripts import gameClass
 from SpawnScripts.SettingsClass import SettingsMap
 from TankScripts.tankClass import Tank
 from TankScripts.tankSettings import tankSettings
-
+from gameScripts.gameSettings import GameSettings
 
 
 SIZE = 10
@@ -43,10 +43,10 @@ tankSettings.health = HEALTH_ENEMY
 while True:
     gameClass.loadBest(VISIBLE_ZONE)
     matrix = mapClass.Map(SIZE, settings)
-    for m in matrix.matrix:
-        print(m)
     window = windowClass.Window(SIZE+2)#tankSettings.visibleZone*2+1)
-
+    GameSettings.session = True
+    GameSettings.difficult = 1
+    GameSettings.In_menu = False
     members = []
     for m in range(1, len(matrix.enemysCords) + 1):
         members.append(Tank(m, matrix.enemysCords[m - 1], window))
