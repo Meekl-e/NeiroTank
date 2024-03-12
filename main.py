@@ -48,8 +48,8 @@ while True:
     GameSettings.difficult = 1
     GameSettings.In_menu = False
     members = []
-    for m in range(1, len(matrix.enemysCords) + 1):
-        members.append(Tank(m, matrix.enemysCords[m - 1], window))
+    for m in range(1, len(matrix.enemiesCoords) + 1):
+        members.append(Tank(m, matrix.enemiesCoords[m - 1], window))
     tankSettings.playerID = m+1
     members.append(Tank(m+1, (settings.playerPosition[0]+1, settings.playerPosition[1]+1), window))
     g = gameClass.Game(map=matrix.matrix, bonusAdd=BONUS_ADD, members=members, window=window)

@@ -50,9 +50,12 @@ class Window(Tk):
     def __init__(self, size):
         super().__init__()
         self.size = size
-        #self.overrideredirect(1)
-        #self.state('zoomed')
-        self.geometry("1536x864-100-100")
+
+        self.geometry(GameSettings.size)
+        if GameSettings.fullWindow:
+            self.overrideredirect(1)
+            self.state('zoomed')
+
         self.resizable(width=False, height=False)
         self.config(background="palegreen3")
         self.choices = 0

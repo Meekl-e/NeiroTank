@@ -18,7 +18,7 @@ class Map():
           self.settings = settings
           self.size = size
           self.matrix = [([1]*size).copy() for i in range(size)]
-          self.enemysCords = []
+          self.enemiesCoords = []
           self.matrix[settings.playerPosition[1]][settings.playerPosition[0]] = 0
 
           self.createWalls()
@@ -68,14 +68,14 @@ class Map():
           if GameSettings.difficult < 3:
                 x = self.size - 1
                 y = 0
-                self.enemysCords.append((x, y))
+                self.enemiesCoords.append((x, y))
                 self.matrix[y][x] = -3
-          elif GameSettings.difficult >= 3:
+          else:
                 setCoords = [(0,0), (self.size-1,0), (self.size-1, self.size-1), (3,3), (6, 6)]
                 for e in range(self.settings.enemys):
                       x,y = setCoords[e]
 
-                      self.enemysCords.append((x, y))
+                      self.enemiesCoords.append((x, y))
                       self.matrix[y][x] = -3
     def spawnBonus(self):
           for e in range(self.settings.bonuses):
@@ -106,7 +106,7 @@ class Map():
 
     def convertPlayerEnemys(self):
           id = 1
-          for x,y in self.enemysCords:
+          for x,y in self.enemiesCoords:
                 if self.matrix[y][x] == "E":
                       self.matrix[y][x] = id
                       id+=1
@@ -117,9 +117,9 @@ class Map():
                 self.matrix[line].append(0)
                 self.matrix[line].insert(0, 0)
 
-          self.enemysCords = list(map(lambda x:(x[0]+1,x[1]+1), self.enemysCords))
+          self.enemiesCoords = list(map(lambda x:(x[0] + 1, x[1] + 1), self.enemiesCoords))
     def checkForPlayer(self, x,y):
-          for pos in self.enemysCords:
+          for pos in self.enemiesCoords:
                 if pos[0]-3 < x < pos[0]+3 and pos[1]-3 < y < pos[1]+3:
                       return True
           return False

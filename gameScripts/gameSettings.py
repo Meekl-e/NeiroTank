@@ -5,3 +5,5 @@ class GameSettings:
     win = False
     endGame = False
     work = True
+    size = "1536x864+0+0"
+    fullWindow = True

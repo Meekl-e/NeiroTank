@@ -15,6 +15,7 @@ class startWindow(Tk):
     def __init__(self):
         super().__init__()
         self.difficult = 0
+        self.title("Танки")
         self.tankSprite = PhotoImage(file="sprites/tankMenu.png")
         self.rulesImage =PhotoImage(file="sprites/rules.png")
         GameSettings.In_menu = True
@@ -23,9 +24,13 @@ class startWindow(Tk):
                              cursor="target")
         self.canvas.pack()
         self.resizable(width=False, height=False)
-        # self.overrideredirect(1)
-        # self.state('zoomed')
-        self.geometry("1536x864-100-100")
+        self.config(background="palegreen3")
+
+        self.geometry(GameSettings.size)
+        if GameSettings.fullWindow:
+            self.overrideredirect(1)
+            self.state('zoomed')
+
         self.draw_interface()
 
         self.canvas.bind("<Button-1>", self.mouse_touch)
@@ -188,8 +193,8 @@ class startWindow(Tk):
 
         members = []
 
-        for m in range(1, len(matrix.enemysCords) + 1):
-            members.append(Tank(m, matrix.enemysCords[m - 1], window))
+        for m in range(1, len(matrix.enemiesCoords) + 1):
+            members.append(Tank(m, matrix.enemiesCoords[m - 1], window))
         tankSettings.playerID = m + 1
         matrix.matrix[SettingsMap.playerPosition[1] + 1][ SettingsMap.playerPosition[0] + 1] = m+1
 
